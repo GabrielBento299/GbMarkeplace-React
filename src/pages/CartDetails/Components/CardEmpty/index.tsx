@@ -1,15 +1,15 @@
-import { AiOutlineShoppingCart } from 'react-icons/Ai';
-import { Container } from './styles';
+import { Container } from "./styles";
+import { BsCart4 } from "react-icons/bs";
 
 export default function CardEmpty() {
-    return (
-        <Container className="container">
-            <div>
-                <AiOutlineShoppingCart />
-            </div>
+  return (
+    <Container className="container">
+      <div>
+        <BsCart4 />
+      </div>
 
-            <h1>Você ainda não tem nenhum produto adicionado ao carrinho</h1>
-            <p>Adicione um produto ao seu carrinho para poder concuir sua compra</p>
-        </Container>
-    )
+      <h1>Você ainda não tem nenhum produto adicionado ao carrinho</h1>
+      <p>Adicione um produto ao seu carrinho para poder concuir sua compra</p>
+    </Container>
+  );
 }
