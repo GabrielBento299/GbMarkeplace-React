@@ -4,8 +4,8 @@ import { BsFillCartDashFill } from "react-icons/bs";
 
 import UseCart from "../../hooks/useCart";
 import { formatCurrency } from "../../utils/formatMoney";
-import CardEmpty from "./Components/CardEmpty";
 import Button from "../../components/Button";
+import CardEmpty from "./Components/CardEmpty";
 
 export default function CartDetails() {
   const { cart, removedItem } = UseCart();
@@ -14,14 +14,14 @@ export default function CartDetails() {
     removedItem(favoritesId);
   }
 
-  const subTotal = cart.reduce((sumTotal, product) => sumTotal + product.price, 0);
+  const subTotal = cart.reduce(
+    (sumTotal, product) => sumTotal + product.price,
+    0
+  );
 
   return (
     <div>
-      <div>
-        {cart.length === 0 && (<CardEmpty />)}
-      </div>
-
+      <div>{cart.length === 0 && <CardEmpty />}</div>
       {cart.length > 0 && (
         <Container>
           <ProductTable>
@@ -47,15 +47,24 @@ export default function CartDetails() {
                     <span>{formatCurrency(favorites.price)}</span>
                   </td>
                   <td>
-                    <a className="link-detail" target="_blank" href={favorites.permalink}>Ver mais</a>
+                    <a
+                      className="link-detail"
+                      target="_blank"
+                      href={favorites.permalink}
+                    >
+                      Ver mais
+                    </a>
                   </td>
                   <td>
-                      <Button onClick={() => removedItemFavorites(favorites.id)} bgColor="#F63132">
-                        <div>
-                          <span>Remover</span>
-                          {<BsFillCartDashFill />}
-                        </div>
-                      </Button>
+                    <Button
+                      onClick={() => removedItemFavorites(favorites.id)}
+                      bgColor="#F63132"
+                    >
+                      <div>
+                        <span>Remover</span>
+                        {<BsFillCartDashFill />}
+                      </div>
+                    </Button>
                   </td>
                 </tr>
               ))}

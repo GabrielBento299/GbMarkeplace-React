@@ -1,6 +1,5 @@
-import {} from '../CardEmpty/styles';
 import { AiOutlineShoppingCart } from 'react-icons/Ai';
-import { Container } from '../CardEmpty/styles';
+import { Container } from './styles';
 
 export default function CardEmpty() {
     return (
