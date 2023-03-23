@@ -44,7 +44,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setIsLoading(true);
       const { data } = await axios.get(`https://api.mercadoLibre.com/sites/MLB/search?q=celular`);
       setProducts(data.results);
-      console.log(data.results);
     } catch (err) {
       toast.error("Erro! volte mais tarde!");
     } finally {
