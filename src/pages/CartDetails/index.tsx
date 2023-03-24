@@ -10,6 +10,8 @@ import CardEmpty from "./Components/CardEmpty";
 export default function CartDetails() {
   const { cart, removedItem } = UseCart();
 
+  console.log(cart)
+
   function removedItemFavorites(favoritesId: string) {
     removedItem(favoritesId);
   }
@@ -20,9 +22,10 @@ export default function CartDetails() {
   );
 
   return (
-    <div>
+    <>
       <div>{cart.length === 0 && <CardEmpty />}</div>
-      {cart.length > 0 && (
+
+      {cart?.length > 0 && (
         <Container>
           <ProductTable>
             <thead>
@@ -79,6 +82,6 @@ export default function CartDetails() {
           </ItemsAction>
         </Container>
       )}
-    </div>
+    </>
   );
 }
