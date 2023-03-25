@@ -1,4 +1,4 @@
-import { ProductArea, Form, Button } from "./styles";
+import { ProductArea, Form } from "./styles";
 import UseCart from "../../hooks/useCart";
 import Loading from "../../components/Loading/Loading";
 import CardCart from "../../components/CardCart";
