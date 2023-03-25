@@ -9,6 +9,10 @@ export const ContainerHeader = styled.div`
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     display: flex;
 
+    @media screen and (max-width: 568px) {
+        height: 7.5rem;
+    }
+
     > div {
         display: flex;
         align-items: center;
@@ -18,7 +22,7 @@ export const ContainerHeader = styled.div`
             flex-direction: column;
             justify-content: center;
             gap: 0.785rem;
-            align-items: inherit;
+            align-items: baseline;
         }
     }
 

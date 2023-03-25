@@ -9,6 +9,7 @@ export const Container = styled.div`
     padding: 30px;
     margin-bottom: 4rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: auto;
 `;
 
 export const Mensagem = styled.div`
@@ -59,4 +60,8 @@ export const ItemsAction = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+        gap: 2rem;
+    }
 `;

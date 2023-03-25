@@ -69,13 +69,14 @@ export default function CartDetails() {
                       </div>
                     </Button>
                   </td>
+                  <td></td>
                 </tr>
               ))}
             </tbody>
           </ProductTable>
 
           <ItemsAction>
-            <Button bgColor="#5061fc" widthSize="20%">
+            <Button bgColor="#5061fc" widthSize="250px">
               Finalizar pedido
             </Button>
             <h2>{formatCurrency(subTotal)}</h2>
