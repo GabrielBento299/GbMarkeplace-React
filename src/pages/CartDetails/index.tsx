@@ -10,8 +10,6 @@ import CardEmpty from "./Components/CardEmpty";
 export default function CartDetails() {
   const { cart, removedItem } = UseCart();
 
-  console.log(cart)
-
   function removedItemFavorites(favoritesId: string) {
     removedItem(favoritesId);
   }
