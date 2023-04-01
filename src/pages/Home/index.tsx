@@ -1,9 +1,11 @@
-import { ProductArea, Form } from "./styles";
+import { ProductArea, InputContainer } from "./styles";
 import UseCart from "../../hooks/useCart";
 import Loading from "../../components/Loading/Loading";
 import CardCart from "../../components/CardCart";
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+
+import EmptySearch from "./components/EmptySearch";
 
 export default function Home() {
   const {
@@ -12,8 +14,9 @@ export default function Home() {
     handleAddcart,
     inputSearch,
     setInputSearch,
-    filteredProducts } = UseCart();
-    
+    filteredProducts,
+  } = UseCart();
+
   const [pageYPosition, setPageYPosition] = useState(0);
 
   function getPageYAfterScroll() {
@@ -29,48 +32,41 @@ export default function Home() {
     window.scrollTo(0, 0);
   }
 
+  const hasProducts = products.length > 0;
+  const isEmptySearch = hasProducts && filteredProducts.length < 1;
+
   return (
     <>
-      {products.length > 0 ? (
+      {hasProducts ? (
         <>
-          <Form className="container">
+          <InputContainer className="container">
             <input
               placeholder="Pesquisar"
               value={inputSearch}
               onChange={(e) => setInputSearch(e.target.value)}
             />
-            <div>
-              {filteredProducts.length < 1 &&
-                `Nenhum resultado encontrado para ${inputSearch}`}
-            </div>
-          </Form>
-          {inputSearch.length > 0 ? (
-            <ProductArea className="container">
-              {filteredProducts.map((product) => (
-                <CardCart
-                  product={product}
-                  handleAddcart={handleAddcart}
-                  cart={cart}
-                  key={product.id}
-                />
-              ))}
-            </ProductArea>
-          ) : (
-            <ProductArea className="container">
-              {products.map((product) => (
-                <CardCart
-                  product={product}
-                  handleAddcart={handleAddcart}
-                  cart={cart}
-                  key={product.id}
-                />
-              ))}
-            </ProductArea>
-          )}
+          
+             {isEmptySearch && 
+              <EmptySearch inputSearch={inputSearch} 
+             />}
+          </InputContainer>
+
+
+          <ProductArea className="container">
+            {filteredProducts.map((product) => (
+              <CardCart
+                product={product}
+                handleAddcart={handleAddcart}
+                cart={cart}
+                key={product.id}
+              />
+            ))}
+          </ProductArea>
         </>
       ) : (
         <Loading />
       )}
+
       <button
         type="button"
         onClick={backToTop}

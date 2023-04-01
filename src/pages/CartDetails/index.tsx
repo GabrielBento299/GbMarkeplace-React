@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { Container, ProductTable, ItemsAction } from "./styles";
 
 import { BsFillCartDashFill } from "react-icons/bs";
@@ -14,16 +16,18 @@ export default function CartDetails() {
     removedItem(favoritesId);
   }
 
-  const subTotal = cart.reduce(
-    (sumTotal, product) => sumTotal + product.price,
-    0
-  );
+  const subTotal = useMemo(() => {
+    return cart.reduce((sumTotal, product) => sumTotal  + product.price , 0);
+  }, [cart]);
+
+  const hashasProductsInCart = cart?.length > 0;
+  const isCartEmpty = cart.length === 0;
 
   return (
     <>
-      <div>{cart.length === 0 && <CardEmpty />}</div>
+      <div>{isCartEmpty && <CardEmpty />}</div>
 
-      {cart?.length > 0 && (
+      {hashasProductsInCart && (
         <Container>
           <ProductTable>
             <thead>
