@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Container } from "./styles";
 import { BsCart4 } from "react-icons/bs";
 
@@ -9,7 +10,7 @@ export default function CardEmpty() {
       </div>
 
       <h1>Você ainda não tem nenhum produto adicionado ao carrinho</h1>
-      <p>Adicione um produto ao seu carrinho para poder concuir sua compra</p>
+      <Link to="/">Clique aqui para adicionar os produtos ao carrinho!</Link>
     </Container>
   );
 }
